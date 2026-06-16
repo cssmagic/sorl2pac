@@ -1,0 +1,7 @@
+[SwitchyOmega Conditions]
+; Project-owned fixture for parser and PAC smoke tests.
+@note basic local fixture
+
+!blocked.example.test
+*.example.test
+10.*.*.*

@@ -1,0 +1,22 @@
+{
+	"name": "sorl2pac",
+	"version": "0.1.0",
+	"description": "Convert SwitchyOmega rule lists to PAC scripts.",
+	"type": "module",
+	"exports": "./src/index.js",
+	"files": [
+		"src",
+		"README.md"
+	],
+	"scripts": {
+		"test": "node --test"
+	},
+	"keywords": [
+		"pac",
+		"proxy",
+		"switchyomega",
+		"sorl"
+	],
+	"author": "cssmagic <cssmagic.cn@gmail.com>",
+	"license": "MIT"
+}
