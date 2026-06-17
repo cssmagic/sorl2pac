@@ -4,12 +4,12 @@
 	"description": "Convert SwitchyOmega rule lists to PAC scripts.",
 	"type": "module",
 	"exports": "./src/index.js",
-	"files": [
-		"src",
-		"README.md"
-	],
 	"scripts": {
 		"test": "node --test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cssmagic/sorl2pac.git"
 	},
 	"keywords": [
 		"pac",
@@ -18,5 +18,13 @@
 		"sorl"
 	],
 	"author": "cssmagic <cssmagic.cn@gmail.com>",
-	"license": "MIT"
+	"license": "MIT",
+	"files": [
+		"src",
+		"README.md",
+		"README.zh.md"
+	],
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/"
+	}
 }

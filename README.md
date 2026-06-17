@@ -1,6 +1,10 @@
+English | [中文](README.zh.md)
+
 # sorl2pac
 
-Convert SwitchyOmega rule lists (`*.sorl`) to PAC scripts.
+> To convert SwitchyOmega rule lists (`*.sorl`) to PAC script.
+
+
 
 ## Usage
 
@@ -21,6 +25,8 @@ function FindProxyForURL(url, host) {
 }
 ```
 
+
+
 ## API
 
 ```ts
@@ -40,6 +46,8 @@ function sorl2pac(
 
 `sorl2pac()` throws `TypeError` for invalid API arguments and `SyntaxError` for unsupported rule-list syntax.
 
+
+
 ## Supported Syntax
 
 This package intentionally supports a small SwitchyOmega new-format subset:
@@ -53,6 +61,8 @@ This package intentionally supports a small SwitchyOmega new-format subset:
 - `!` exclusive rules
 
 Unsupported syntax fails instead of being ignored, including old `#BEGIN` rule lists, `@with result`, `+profile`, URL conditions, IP conditions, time conditions, and AutoProxy syntax.
+
+
 
 ## Matching Behavior
 
@@ -77,3 +87,15 @@ const blacklistPac = sorl2pac(sorlText, {
 	unmatched: "DIRECT",
 });
 ```
+
+
+
+***
+
+## License
+
+> Any code contributed to this project is considered authorized for commercial use by the project authors and their affiliated companies and distributed under this project's license.
+>
+> 任何贡献到本项目的代码，均视为授权本项目作者及其关联公司用于商业用途，并可按本项目协议进行分发。
+
+MIT
