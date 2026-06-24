@@ -8,6 +8,14 @@
 
 ## 使用方法
 
+安装：
+
+```bash
+npm install sorl2pac
+```
+
+转换：
+
 ```js
 import { sorl2pac } from "sorl2pac";
 
@@ -17,7 +25,7 @@ const pacSource = sorl2pac(sorlText, {
 });
 ```
 
-`pacSource` 是一份完整的 PAC 脚本。它包含一个内部的 `match(host)` 辅助函数，以及标准的 `FindProxyForURL(url, host)` 函数。
+这个函数的返回值是一份完整的 PAC 脚本。它包含标准的 `FindProxyForURL(url, host)` 主函数，其内部通过一个 `match(host)` 辅助函数来进行规则匹配（匹配行为参见下面的 [“匹配行为” 章节](#匹配行为)）。主要逻辑示意如下：
 
 ```js
 function FindProxyForURL(url, host) {
@@ -74,7 +82,7 @@ function sorl2pac(
 - `*.abc.com` 同时匹配 `abc.com` 和 `sub.abc.com`。
 - `**.abc.com` 匹配 `sub.abc.com`，但不匹配 `abc.com`。
 
-由于 `results` 可配置，调用方可以用同一份规则实现白名单或黑名单行为。
+我们可以为 `matched` 和 `unmatched` 字段指定任意连接方式，因此可以实现白名单或黑名单代理效果。
 
 ```js
 const whitelistPac = sorl2pac(sorlText, {

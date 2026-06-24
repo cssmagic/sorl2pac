@@ -8,6 +8,14 @@ English | [中文](README.zh.md)
 
 ## Usage
 
+Installation:
+
+```bash
+npm install sorl2pac
+```
+
+Conversion:
+
 ```js
 import { sorl2pac } from "sorl2pac";
 
@@ -17,7 +25,7 @@ const pacSource = sorl2pac(sorlText, {
 });
 ```
 
-`pacSource` is a complete PAC script. It contains an internal `match(host)` helper and a standard `FindProxyForURL(url, host)` function.
+The function returns a complete PAC script. It contains the standard `FindProxyForURL(url, host)` entry point, which uses an internal `match(host)` helper to evaluate rules (see [Matching Behavior](#matching-behavior)). The main logic looks like this:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -74,7 +82,7 @@ Unsupported syntax fails instead of being ignored, including old `#BEGIN` rule l
 - `*.abc.com` matches both `abc.com` and `sub.abc.com`.
 - `**.abc.com` matches `sub.abc.com` but not `abc.com`.
 
-Because `results` is configurable, callers can use the same rules for whitelist or blacklist behavior.
+Because `matched` and `unmatched` can be set to any proxy result strings, callers can implement whitelist or blacklist proxy behavior.
 
 ```js
 const whitelistPac = sorl2pac(sorlText, {
